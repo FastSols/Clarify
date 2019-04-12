@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1"
+    p1:background="@android:color/background_light">
+    <EditText
+        p1:hint="Email Id"
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/email"
+        p1:inputType="textEmailAddress"
+        p1:keyboardNavigationCluster="false"
+        p1:elegantTextHeight="false" />
+    <EditText
+        p1:hint="Name"
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/name"
+        p1:inputType="textPersonName" />
+    <EditText
+        p1:hint="Surname"
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:inputType="textPersonName"
+        p1:id="@+id/surname" />
+    <EditText
+        p1:hint="Mobile number"
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:inputType="phone"
+        p1:id="@+id/mobile" />
+    <EditText
+        p1:hint="Course"
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:inputType="text"
+        p1:id="@+id/course" />
+    <EditText
+        p1:hint="Major"
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:inputType="text"
+        p1:id="@+id/major" />
+    <EditText
+        p1:hint="Password"
+        p1:inputType=""
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/password" />
+    <EditText
+        p1:hint="Confirm Password"
+        p1:textColor="@android:color/background_dark"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/confirm" />
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_height="wrap_content"
+        p1:layout_width="match_parent">
+        <CheckBox
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:text="Student"
+            p1:id="@+id/student" />
+        <CheckBox
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:text="Teacher"
+            p1:id="@+id/teacher" />
+    </LinearLayout>
+    <EditText
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:hint="Domain"
+        p1:id="@+id/domain" />
+    <Button
+        p1:background="@android:color/holo_blue_light"
+        p1:text="Sign Up"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/signup"
+        p1:layout_marginTop="70px" />
+</LinearLayout>

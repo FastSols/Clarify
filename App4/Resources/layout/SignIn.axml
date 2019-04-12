@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1">
+    <EditText
+        p1:hint="Email Id"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/email_address" />
+    <EditText
+        p1:hint="Password"
+        p1:backgroundTint="@android:color/holo_blue_dark"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/password_text" />
+    <RadioGroup
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/radioGroup1">
+        <RadioButton
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:checked="true"
+            p1:text="Student"
+            p1:id="@+id/radioButton1" />
+        <RadioButton
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:text="Teacher"
+            p1:id="@+id/radioButton2" />
+    </RadioGroup>
+    <Button
+        p1:background="@android:color/holo_blue_light"
+        p1:text="Log In"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/login"
+        p1:layout_marginTop="50px" />
+</LinearLayout>
