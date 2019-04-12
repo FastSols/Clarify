@@ -48,7 +48,7 @@ namespace App4.Activities
         {
 
             int i = r.Next() ;
-            var client = new SendGridClient("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");
+            var client = new SendGridClient("");
             var msg = new SendGridMessage()
             {
                 From = new EmailAddress("chitalechinmay@outlook.com", "CLARIFY TEAM"),
