@@ -28,7 +28,6 @@ namespace App4.Activities
                 Toast.MakeText(this, "inside event", ToastLength.Long).Show();
                 TextView email = FindViewById<TextView>(Resource.Id.email_address);
                 TextView password = FindViewById<TextView>(Resource.Id.password_text);
-                string con_query = "Server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 string command = "select * from SignInDetails where Email = '" + email.Text + "' ";
                 try
                 {
