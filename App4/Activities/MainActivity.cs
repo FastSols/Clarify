@@ -7,11 +7,13 @@ using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using App4.Activities;
+using App4.FragFolder;
 namespace App4
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar")]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
+       
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -19,8 +21,7 @@ namespace App4
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+           
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, Resource.String.navigation_drawer_open, Resource.String.navigation_drawer_close);
@@ -29,8 +30,13 @@ namespace App4
 
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.SetNavigationItemSelectedListener(this);
-        }
 
+            var def = new DefaultFrag();
+            FragmentManager.BeginTransaction()
+                            .Add(Resource.Id.frameLayout1, def,"defaultFrag")
+                            .Commit();
+        }
+        
         public override void OnBackPressed()
         {
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
@@ -43,7 +49,7 @@ namespace App4
                 base.OnBackPressed();
             }
         }
-
+        
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
@@ -61,11 +67,18 @@ namespace App4
             return base.OnOptionsItemSelected(item);
         }
 
-        private void FabOnClick(object sender, EventArgs eventArgs)
+        
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
-            View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
+            if (e.KeyCode == Keycode.Back)
+            {
+                
+                if(FragmentManager.BackStackEntryCount!=0)
+                FragmentManager.PopBackStack();
+            }
+
+            return base.OnKeyDown(keyCode, e);
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)
@@ -87,13 +100,20 @@ namespace App4
             }
             else if (id == Resource.Id.dashboard)
             {
-                var intent = new Android.Content.Intent(this, typeof(DashboardActivity));
-                StartActivity(intent);
+                var def = new DefaultFrag();
+                FragmentManager.BeginTransaction()
+                                .Replace(Resource.Id.frameLayout1, def)
+                                .Commit();
             }
             else if (id == Resource.Id.ask)
             {
-                var intent = new Android.Content.Intent(this, typeof(AskActivity));
-                StartActivity(intent);
+
+                FragmentManager.BeginTransaction().AddToBackStack("defaultFrag");
+                            
+                var search = new searcgFrag();
+                FragmentManager.BeginTransaction()
+                                .Add(Resource.Id.frameLayout1,search,"Ask")
+                                .Commit();
             }
             else if (id == Resource.Id.about)
             {
@@ -102,8 +122,10 @@ namespace App4
             }
             else if (id == Resource.Id.answer)
             {
-                var intent = new Android.Content.Intent(this, typeof(DirectAnswer));
-                StartActivity(intent);
+                var answer = new answerFrag();
+                FragmentManager.BeginTransaction()
+                                .Add(Resource.Id.frameLayout1, answer, "Ask")
+                                .Commit();
             }
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);

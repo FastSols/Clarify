@@ -10,10 +10,10 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using App4.FragFolder;
+
 namespace App4.FragFolder
 {
-    public class SignUpFrag : Fragment
+    public class answerFrag : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,10 +24,8 @@ namespace App4.FragFolder
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            View view = inflater.Inflate(Resource.Layout.Answerpage, container, false);
+            return view;
         }
     }
 }

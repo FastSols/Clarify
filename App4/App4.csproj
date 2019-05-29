@@ -78,7 +78,15 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\SubscriptionActivity.cs" />
     <Compile Include="Activities\VideoActivity.cs" />
-    <Compile Include="FragFolder\SignUpFrag.cs" />
+    <Compile Include="FragFolder\answerFrag.cs" />
+    <Compile Include="FragFolder\DefaultFrag.cs" />
+    <Compile Include="FragFolder\feedbackFrag.cs" />
+    <Compile Include="FragFolder\historyFrag.cs" />
+    <Compile Include="FragFolder\profileFrag.cs" />
+    <Compile Include="FragFolder\questionsFrag.cs" />
+    <Compile Include="FragFolder\searcgFrag.cs" />
+    <Compile Include="FragFolder\subsciptionFrag.cs" />
+    <Compile Include="FragFolder\videoFrag.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

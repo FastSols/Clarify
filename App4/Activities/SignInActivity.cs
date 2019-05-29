@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 namespace App4.Activities
 {
-    [Activity(Label = "SignInActivity")]
+    [Activity(Label = "SignInActivity", MainLauncher = true)]
     public class SignInActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -44,9 +44,7 @@ namespace App4.Activities
                         if (password.Text == dataReader["Password"].ToString())
                         {
                             Toast.MakeText(this, dataReader["Email"].ToString(), ToastLength.Long).Show();
-                            var intent = new Intent(this, typeof(DashboardActivity));
-                            intent.PutExtra("username", "Prathamesh@viit.com");
-                            intent.PutExtra("passsword", "abc123");
+                            var intent = new Intent(this, typeof(MainActivity));
                             StartActivity(intent);
 
                         }
