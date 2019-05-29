@@ -36,6 +36,7 @@ namespace App4.FragFolder
             Button feedback = view.FindViewById<Button>(Resource.Id.Feedbacks);
 
             profile.Click += profileClick;
+            questions.Click += questionClick;
             return view;
            
         }
@@ -45,6 +46,13 @@ namespace App4.FragFolder
             FragmentManager.BeginTransaction()
                             .Replace(Resource.Id.frameLayout1, prof).Commit();
                             
+        }
+        void questionClick(Object sender, EventArgs eventArgs)
+        {
+            var prof = new questionsFrag();
+            FragmentManager.BeginTransaction()
+                            .Replace(Resource.Id.frameLayout1, prof).Commit();
+
         }
 
     }
