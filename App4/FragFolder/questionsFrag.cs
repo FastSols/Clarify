@@ -16,6 +16,8 @@ namespace App4.FragFolder
 {
     public class questionsFrag : Fragment
     {
+        public int id;
+        public int stid;
         ListView listView;
         string[] items;
         ArrayAdapter ListAdapter = null;
@@ -33,6 +35,7 @@ namespace App4.FragFolder
 
             List<String> items = new List<String>();
 
+            stid = Arguments.GetInt("StudId");
             SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             connection.Open();
             string query = "select Question from LiveQuestion;";
@@ -65,9 +68,33 @@ namespace App4.FragFolder
         void list_item_clicked(Object sender, AdapterView.ItemClickEventArgs e)
         {
 
-            // Toast.MakeText(this, listView.GetItemAtPosition(e.Position).ToString(), ToastLength.Long).Show();
 
+            int id;
+
+            Toast.MakeText(Context, listView.GetItemAtPosition(e.Position).ToString(), ToastLength.Long).Show();
+            String name = listView.GetItemAtPosition(e.Position).ToString();
+            try
+            {
+                SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                connection.Open();
+                string query = "select Question_id from LiveQuestion where Question = '" + name + "';";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                reader = cmd.ExecuteReader();
+                reader.Read();
+                 id = Int32.Parse(reader["Question_id"].ToString());
+                Toast.MakeText(Context, id.ToString(), ToastLength.Long).Show();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            Bundle bundle = new Bundle();
+            bundle.PutInt("Qid", id);
+            bundle.PutInt("StudId", stid);
             var ques = new answerFrag();
+            ques.Arguments = bundle;
             FragmentManager.BeginTransaction()
                             .Replace(Resource.Id.frameLayout1, ques).Commit();
         }

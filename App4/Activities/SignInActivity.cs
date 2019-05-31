@@ -31,7 +31,7 @@ namespace App4.Activities
                 string command = "select * from SignInDetails where Email = '" + email.Text + "' ";
                 try
                 {
-                    SqlConnection con = new SqlConnection(con_query);
+                    SqlConnection con = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                     con.Open();
                     Toast.MakeText(this, con.State.ToString(), ToastLength.Long).Show();
                     SqlCommand sqlCommand = new SqlCommand(command, con);
@@ -42,8 +42,10 @@ namespace App4.Activities
 
                         if (password.Text == dataReader["Password"].ToString())
                         {
+                           
                             Toast.MakeText(this, dataReader["Email"].ToString(), ToastLength.Long).Show();
                             var intent = new Intent(this, typeof(MainActivity));
+                            intent.PutExtra("StudId", dataReader["StudId"].ToString()); ;
                             StartActivity(intent);
 
                         }

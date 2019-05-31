@@ -1,11 +1,14 @@
 ﻿using System;
+using Android;
 using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Views;
+using Android.Widget;
 using App4.Activities;
 using App4.FragFolder;
 namespace App4
@@ -13,6 +16,7 @@ namespace App4
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar")]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
+        int id = 0;
        
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,7 +35,23 @@ namespace App4
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.SetNavigationItemSelectedListener(this);
 
+            if (Android.Support.V4.Content.ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage) != (int)Permission.Granted)
+            {
+                Android.Support.V4.App.ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.WriteExternalStorage }, 0);
+            }
+
+            if (Android.Support.V4.Content.ContextCompat.CheckSelfPermission(this, Manifest.Permission.ReadExternalStorage) != (int)Permission.Granted)
+            {
+                Android.Support.V4.App.ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.ReadExternalStorage }, 0);
+            }
+            String id = Intent.GetStringExtra("StudId");
+            //Toast.MakeText(this, id, ToastLength.Long).Show();
+
+            int i = Int32.Parse(id.ToString());
+            Bundle bundle = new Bundle();
+            bundle.PutInt("StudId",i);
             var def = new DefaultFrag();
+           def.Arguments = bundle;
             FragmentManager.BeginTransaction()
                             .Add(Resource.Id.frameLayout1, def,"defaultFrag")
                             .Commit();
@@ -107,10 +127,17 @@ namespace App4
             }
             else if (id == Resource.Id.ask)
             {
+                String idd = Intent.GetStringExtra("StudId");
+                //Toast.MakeText(this, id, ToastLength.Long).Show();
 
-                FragmentManager.BeginTransaction().AddToBackStack("defaultFrag");
+                int i = Int32.Parse(idd.ToString());
+                Bundle bundle = new Bundle();
+                bundle.PutInt("StudId", i);
+
+              
                             
                 var search = new searcgFrag();
+                search.Arguments = bundle;
                 FragmentManager.BeginTransaction()
                                 .Add(Resource.Id.frameLayout1,search,"Ask")
                                 .Commit();
@@ -122,7 +149,14 @@ namespace App4
             }
             else if (id == Resource.Id.answer)
             {
+                String iid = Intent.GetStringExtra("StudId");
+                //Toast.MakeText(this, id, ToastLength.Long).Show();
+
+                int i = Int32.Parse(iid.ToString());
+                Bundle bundle = new Bundle();
+                bundle.PutInt("StudId", i);
                 var answer = new answerFrag();
+                answer.Arguments = bundle;
                 FragmentManager.BeginTransaction()
                                 .Add(Resource.Id.frameLayout1, answer, "Ask")
                                 .Commit();

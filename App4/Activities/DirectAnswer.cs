@@ -27,6 +27,7 @@ namespace App4.Activities
             ArrayAdapter ListAdapter = null;
 
             List<String> items = new List<String>();
+            SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             connection.Open();
             string query = "select Question from LiveQuestion;";

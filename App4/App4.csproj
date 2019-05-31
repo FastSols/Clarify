@@ -38,6 +38,7 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -81,6 +82,7 @@
     <Compile Include="FragFolder\answerFrag.cs" />
     <Compile Include="FragFolder\DefaultFrag.cs" />
     <Compile Include="FragFolder\feedbackFrag.cs" />
+    <Compile Include="FragFolder\getSolutionFrag.cs" />
     <Compile Include="FragFolder\historyFrag.cs" />
     <Compile Include="FragFolder\profileFrag.cs" />
     <Compile Include="FragFolder\questionsFrag.cs" />
@@ -149,6 +151,9 @@
     <PackageReference Include="System.Data.SqlClient">
       <Version>4.5.1</Version>
     </PackageReference>
+    <PackageReference Include="WindowsAzure.Storage">
+      <Version>9.3.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
     <PackageReference Include="Xamarin.Dialog.Plugin.FilePicker">
       <Version>1.0.3</Version>
@@ -157,7 +162,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\layout\SignUp.axml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Download.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <Content Include="trial.txt" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\SignIn.axml" />
   </ItemGroup>

@@ -17,6 +17,7 @@ namespace App4.FragFolder
     public class searcgFrag : Fragment
     {
         EditText question;
+        int id;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,7 +33,7 @@ namespace App4.FragFolder
             view = inflater.Inflate(Resource.Layout.Search,container,false);
             Button ask = view.FindViewById<Button>(Resource.Id.ask);
              question = view.FindViewById<EditText>(Resource.Id.askedquestion);
-
+            id = Arguments.GetInt("StudId");
             ask.Click += askClick;
 
             return view;
@@ -44,7 +45,7 @@ namespace App4.FragFolder
             int x = r.Next(10000);
             int y = r.Next(10000);
             var con = connect();
-            string sql = "insert into LiveQuestion(Question_id,Student_id,Domain,Question,Accept,Answered,Answer_Count) values ('"+x+"','" + y + "','DS','" + question.Text + "',0,0,0);";
+            string sql = "insert into LiveQuestion(Student_id,Domain,Question,Accept,Answered,Answer_Count) values ('" + id + "','DS','" + question.Text + "',0,0,0);";
             try
             {
 

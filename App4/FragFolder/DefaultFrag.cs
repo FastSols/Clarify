@@ -15,6 +15,7 @@ namespace App4.FragFolder
 {
     public class DefaultFrag : Fragment
     {
+      public  int id;
         public override void OnCreate(Bundle savedInstanceState)
         {
 
@@ -34,9 +35,13 @@ namespace App4.FragFolder
             Button history = view.FindViewById<Button>(Resource.Id.History);
             Button subscription = view.FindViewById<Button>(Resource.Id.Subscription);
             Button feedback = view.FindViewById<Button>(Resource.Id.Feedbacks);
+            id = Arguments.GetInt("StudId");
+            Toast.MakeText(Context, id.ToString(), ToastLength.Long).Show();
 
             profile.Click += profileClick;
             questions.Click += questionClick;
+            videos.Click += videosClick;
+
             return view;
            
         }
@@ -49,11 +54,22 @@ namespace App4.FragFolder
         }
         void questionClick(Object sender, EventArgs eventArgs)
         {
+            Bundle bundle = new Bundle();
+            bundle.PutInt("StudId", id);
             var prof = new questionsFrag();
+            prof.Arguments = bundle;
             FragmentManager.BeginTransaction()
                             .Replace(Resource.Id.frameLayout1, prof).Commit();
 
         }
-
+        void videosClick(Object sender,EventArgs eventArgs)
+        {
+            Bundle bundle = new Bundle();
+            bundle.PutInt("StudId", id);
+            var prof = new getSolutionFrag();
+            prof.Arguments = bundle;
+            FragmentManager.BeginTransaction()
+                            .Replace(Resource.Id.frameLayout1, prof).Commit();
+        }
     }
 }
