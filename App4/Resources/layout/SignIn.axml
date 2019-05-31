@@ -18,22 +18,18 @@
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/password_text" />
-    <RadioGroup
+    <CheckBox
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/radioGroup1">
-        <RadioButton
-            p1:layout_width="wrap_content"
-            p1:layout_height="wrap_content"
-            p1:checked="true"
-            p1:text="Student"
-            p1:id="@+id/radioButton1" />
-        <RadioButton
-            p1:layout_width="wrap_content"
-            p1:layout_height="wrap_content"
-            p1:text="Teacher"
-            p1:id="@+id/radioButton2" />
-    </RadioGroup>
+        p1:text = "Student"
+        p1:id = "@+id/studentcheck"
+    />
+     <CheckBox
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:text = "Teacher"
+        p1:id = "@+id/teachercheck"
+    />
     <Button
         p1:background="@android:color/holo_blue_light"
         p1:text="Log In"
@@ -41,4 +37,24 @@
         p1:layout_height="wrap_content"
         p1:id="@+id/login"
         p1:layout_marginTop="50px" />
+
+    <TextView
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:text="OR"
+        p1:layout_marginLeft ="360px"
+        p1:paddingTop="45px"
+        
+    
+    />
+   <Button
+       p1:layout_width="match_parent"
+       p1:layout_height="wrap_content"
+          p1:background="@android:color/holo_blue_light"
+        p1:id ="@+id/abcd"
+        p1:text = "Sign Up"
+        
+    />
+
+
 </LinearLayout>

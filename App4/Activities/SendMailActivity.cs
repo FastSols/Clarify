@@ -35,6 +35,9 @@ namespace App4.Activities
                 SendMail();
                
                 Toast.MakeText(this,"Mail has been sent", ToastLength.Long).Show();
+                var intent = new Intent(this, typeof(SignInActivity));
+
+                StartActivity(intent);
             }
             
             catch (Exception e)

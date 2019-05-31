@@ -77,8 +77,10 @@
     <Compile Include="Activities\SignInActivity.cs" />
     <Compile Include="Activities\Activity1.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\splashscreen.cs" />
     <Compile Include="Activities\SubscriptionActivity.cs" />
     <Compile Include="Activities\VideoActivity.cs" />
+    <Compile Include="FragFolder\AboutUsFrag.cs" />
     <Compile Include="FragFolder\answerFrag.cs" />
     <Compile Include="FragFolder\DefaultFrag.cs" />
     <Compile Include="FragFolder\feedbackFrag.cs" />
@@ -164,6 +166,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Download.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\logo.png" />
+    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\drawable\icmp.png" />
+    <AndroidResource Include="Resources\layout\SplashScreen.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\NewSignIn.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <Content Include="trial.txt" />

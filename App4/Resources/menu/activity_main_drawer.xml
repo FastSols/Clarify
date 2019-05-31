@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/signup"
-            android:icon="@drawable/ic_menu_camera"
+          
             android:title="Sign Up" />
         <item
             android:id="@+id/signin"
-            android:icon="@drawable/ic_menu_gallery"
+            
             android:title="Sign In" />
         <item
             android:id="@+id/dashboard"
-            android:icon="@drawable/ic_menu_slideshow"
+
             android:title="Dash Board" />
         <item
             android:id="@+id/ask"
-            android:icon="@drawable/ic_menu_manage"
+           
             android:title="Ask Question" />
     </group>
 
@@ -26,11 +26,11 @@
         <menu>
             <item
                 android:id="@+id/about"
-                android:icon="@drawable/ic_menu_share"
+                
                 android:title="About Us" />
             <item
                 android:id="@+id/answer"
-                android:icon="@drawable/ic_menu_send"
+              
                 android:title="Post An Answer" />
         </menu>
     </item>

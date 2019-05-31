@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background = "@android:color/holo_blue_light"
         android:id="@+id/profile"
         android:text="Personal Profile" />
     <Button
@@ -23,29 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+                android:background = "@android:color/holo_blue_light"
+
         android:id="@+id/questiions" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+                android:background = "@android:color/holo_blue_light"
+
         android:id="@+id/videos"
         android:text="Your Videos" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="History"
-        android:id="@+id/History" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Subscription"
-        android:id="@+id/Subscription" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Feedbacks"
-        android:id="@+id/Feedbacks" />
+    
 </LinearLayout>

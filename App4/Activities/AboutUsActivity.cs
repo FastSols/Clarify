@@ -26,7 +26,7 @@ namespace App4.Activities
             web_view = FindViewById<WebView>(Resource.Id.webView);
             web_view.Settings.JavaScriptEnabled = true;
             //  web_view.SetWebViewClient(new HelloWebViewClient())
-            web_view.LoadUrl("http://www.instantsolution.co.in/#team");
+            web_view.LoadUrl("https://prthm123.000webhostapp.com/team.html");
         }
     }
 }

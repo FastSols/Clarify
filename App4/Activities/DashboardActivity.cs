@@ -77,7 +77,7 @@ namespace App4.Activities
             }
 
 
-            Button History = FindViewById<Button>(Resource.Id.History);
+           /* Button History = FindViewById<Button>(Resource.Id.History);
             History.Click += HistoryClick;
             void HistoryClick(Object sender, EventArgs eventArgs)
             {
@@ -102,7 +102,7 @@ namespace App4.Activities
                 var f = new Intent(this, typeof(FeedbackActivity));
                 StartActivity(f);
             }
-
+            */
         }
       
 

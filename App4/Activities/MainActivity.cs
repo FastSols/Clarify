@@ -17,7 +17,7 @@ namespace App4
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
         int id = 0;
-       
+        int sid, tid;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -44,12 +44,25 @@ namespace App4
             {
                 Android.Support.V4.App.ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.ReadExternalStorage }, 0);
             }
-            String id = Intent.GetStringExtra("StudId");
+           
+            if (Intent.GetStringExtra("StudId") != null)
+            {
+                String id = Intent.GetStringExtra("StudId");
+              sid  = Int32.Parse(id.ToString());
+            }
+            if (Intent.GetStringExtra("TeachId") != null)
+            {
+                String Tid = Intent.GetStringExtra("TeachId");
+                tid = Int32.Parse(Tid.ToString());
+            }
+
+           
             //Toast.MakeText(this, id, ToastLength.Long).Show();
 
-            int i = Int32.Parse(id.ToString());
+
             Bundle bundle = new Bundle();
-            bundle.PutInt("StudId",i);
+            bundle.PutInt("StudId",sid);
+            bundle.PutInt("TeachId",tid);
             var def = new DefaultFrag();
            def.Arguments = bundle;
             FragmentManager.BeginTransaction()
@@ -104,6 +117,7 @@ namespace App4
         public bool OnNavigationItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
+          
 
             if (id == Resource.Id.signup)
             {
@@ -144,11 +158,15 @@ namespace App4
             }
             else if (id == Resource.Id.about)
             {
-                var intent = new Android.Content.Intent(this, typeof(AboutUsActivity));
-                StartActivity(intent);
+                var answer = new AboutUsFrag();
+                
+                FragmentManager.BeginTransaction()
+                                .Add(Resource.Id.frameLayout1, answer, "Ask")
+                                .Commit();
             }
             else if (id == Resource.Id.answer)
             {
+                
                 String iid = Intent.GetStringExtra("StudId");
                 //Toast.MakeText(this, id, ToastLength.Long).Show();
 

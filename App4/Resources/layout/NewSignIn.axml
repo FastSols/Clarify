@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linearLayout1">
+    <EditText
+        android:hint="Email Id"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email_address" />
+    <EditText
+        android:hint="Password"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/password_text" />
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Student"
+        android:id = "@+id/studentcheck"
+    />
+     <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Teacher"
+        android:id = "@+id/teachercheck"
+    />
+    <Button
+        android:background="@android:color/holo_blue_light"
+        android:text="Log In"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/login"
+        android:layout_marginTop="50px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:layout_marginLeft ="360px"
+        android:paddingTop="45px"
+        
+    
+    />
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+          android:background="@android:color/holo_blue_light"
+        android:id ="@+id/abcd"
+        android:text = "Sign Up"
+        
+    />
+
+</LinearLayout>

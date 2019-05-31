@@ -44,25 +44,36 @@ namespace App4.FragFolder
         void checkClick(Object sender ,EventArgs eventArgs)
         {
             int id = Arguments.GetInt("StudId");
-            SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            connection.Open();
-            string query = "select Container_Name ,Blob_Name from DataRefernce where Student_Id ='"+id+"' ;";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            reader = cmd.ExecuteReader();
-            if(reader.Read())
+       int     qid = Arguments.GetInt("Qid");
+
+            Toast.MakeText(Context, id.ToString() + " " + qid.ToString(), ToastLength.Long).Show();
+            try
             {
-                path2 = reader["Blob_Name"].ToString();
-                
+                SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                connection.Open();
+                string query = "select Container_Name ,Blob_Name from DataRefernce where Student_Id ='" + id + "' and Question_Id = '" + qid + "';";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    path2 = reader["Blob_Name"].ToString();
+
+                }
+                connection.Close();
             }
-           
-            connection.Close();
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
         void downloadClick(Object sender, EventArgs eventArgs)
         {
             string gpath = path1 + path2;
             //String path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
           //  var pathToNewFolder = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/Pappu";
-           // var  data = Directory.CreateDirectory("/storage/emulated/0/Android/data/com.App4.App/Answers");
+            Directory.CreateDirectory("/storage/emulated/0/Android/data/com.App4.App/Answers");
             
             DownloadFileAsync(path2,gpath);
         }

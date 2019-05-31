@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -16,6 +17,8 @@ namespace App4.FragFolder
     public class DefaultFrag : Fragment
     {
       public  int id;
+        int newid;
+        SqlDataReader reader;
         public override void OnCreate(Bundle savedInstanceState)
         {
 
@@ -32,9 +35,7 @@ namespace App4.FragFolder
             Button profile = view.FindViewById<Button>(Resource.Id.profile);
             Button questions = view.FindViewById<Button>(Resource.Id.questiions);
             Button videos = view.FindViewById<Button>(Resource.Id.videos);
-            Button history = view.FindViewById<Button>(Resource.Id.History);
-            Button subscription = view.FindViewById<Button>(Resource.Id.Subscription);
-            Button feedback = view.FindViewById<Button>(Resource.Id.Feedbacks);
+           
             id = Arguments.GetInt("StudId");
             Toast.MakeText(Context, id.ToString(), ToastLength.Long).Show();
 
@@ -64,8 +65,29 @@ namespace App4.FragFolder
         }
         void videosClick(Object sender,EventArgs eventArgs)
         {
+            try
+            {
+                SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                connection.Open();
+                string query = "select Question_id from LiveQuestion where Student_id = '" + id + "';";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                reader = cmd.ExecuteReader();
+                reader.Read();
+                newid = Int32.Parse(reader["Question_id"].ToString());
+                Toast.MakeText(Context, id.ToString(), ToastLength.Long).Show();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
             Bundle bundle = new Bundle();
             bundle.PutInt("StudId", id);
+            bundle.PutInt("Qid",newid );
             var prof = new getSolutionFrag();
             prof.Arguments = bundle;
             FragmentManager.BeginTransaction()
