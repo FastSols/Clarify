@@ -14,7 +14,8 @@ using Android.Widget;
 
 namespace App4.FragFolder
 {
-    public class questionsFrag : Fragment
+    
+    public class StudQuestionFrag : Fragment
     {
         public int id;
         public int stid;
@@ -34,11 +35,11 @@ namespace App4.FragFolder
             View view = inflater.Inflate(Resource.Layout.Question, container, false);
 
             List<String> items = new List<String>();
-
+            Toast.MakeText(Context, "in student part", ToastLength.Long).Show();
             stid = Arguments.GetInt("StudId");
             SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             connection.Open();
-            string query = "select Question from LiveQuestion;";
+            string query = "select Question_Id from DataRefernce where Student_id = '"+stid+"';";
             SqlCommand cmd = new SqlCommand(query, connection);
             reader = cmd.ExecuteReader();
             reader.Read();
@@ -81,7 +82,7 @@ namespace App4.FragFolder
                 SqlCommand cmd = new SqlCommand(query, connection);
                 reader = cmd.ExecuteReader();
                 reader.Read();
-                 id = Int32.Parse(reader["Question_id"].ToString());
+                id = Int32.Parse(reader["Question_id"].ToString());
                 stid = Int32.Parse(reader["Student_id"].ToString());
                 Toast.MakeText(Context, id.ToString(), ToastLength.Long).Show();
                 connection.Close();
@@ -99,7 +100,5 @@ namespace App4.FragFolder
             FragmentManager.BeginTransaction()
                             .Replace(Resource.Id.frameLayout1, ques).Commit();
         }
-
     }
-   
 }

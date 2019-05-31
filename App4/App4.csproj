@@ -89,6 +89,8 @@
     <Compile Include="FragFolder\profileFrag.cs" />
     <Compile Include="FragFolder\questionsFrag.cs" />
     <Compile Include="FragFolder\searcgFrag.cs" />
+    <Compile Include="FragFolder\StudDashFrag.cs" />
+    <Compile Include="FragFolder\StudQuestionFrag.cs" />
     <Compile Include="FragFolder\subsciptionFrag.cs" />
     <Compile Include="FragFolder\videoFrag.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -175,6 +177,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\NewSignIn.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\StudentDashBoard.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <Content Include="trial.txt" />

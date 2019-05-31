@@ -26,6 +26,7 @@ namespace App4.FragFolder
         Random r2 = new Random(10);
         string path = null;
         int studid, qid;
+        static int q1 = 0;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,7 +44,7 @@ namespace App4.FragFolder
             upload.Click += uploadclick;
             studid = Arguments.GetInt("StudId");
             qid = Arguments.GetInt("Qid");
-
+        //    q1 = Arguments.GetInt("Qid");
             Toast.MakeText(Context, qid.ToString()+" "+studid.ToString(), ToastLength.Long).Show();
             return view; 
         }
@@ -158,11 +159,24 @@ namespace App4.FragFolder
             });
 
             var blob = container.GetBlockBlobReference(Path);
-            string final = "storage/emulated/0/Documents/" + Path;
+            string final = "storage/emulated/0/Download/" + Path;
           await  blob.UploadFromFileAsync(final);
+            
+      /*    String q = "UPDATE LiveQuestion SET Answered = '"+true+"', WHERE Question_id = '" +q1+ "'; ";
+            try
+            {
+                SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                connection.Open();
 
-          
+                SqlCommand cmd = new SqlCommand(q, connection);
+                int i = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
 
-        }
+                throw;
+            }
+           // Toast.MakeText(this, i.ToString(), ToastLength.Long).Show();
+      */  }
     }
 }

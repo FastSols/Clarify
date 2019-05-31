@@ -22,6 +22,7 @@ namespace App4.FragFolder
         SqlDataReader reader;
         string path1 = "/storage/emulated/0/Android/data/com.App4.App/Answers/";
         string path2,container;
+        int id, qid;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,8 +44,8 @@ namespace App4.FragFolder
 
         void checkClick(Object sender ,EventArgs eventArgs)
         {
-            int id = Arguments.GetInt("StudId");
-       int     qid = Arguments.GetInt("Qid");
+             id = Arguments.GetInt("StudId");
+           qid = Arguments.GetInt("Qid");
 
             Toast.MakeText(Context, id.ToString() + " " + qid.ToString(), ToastLength.Long).Show();
             try
@@ -68,6 +69,27 @@ namespace App4.FragFolder
             }
             
         }
+        void del()
+        {
+            SqlDataReader reader;
+
+            try
+            {
+                SqlConnection connection = new SqlConnection("server=tcp:fastsols.database.windows.net,1433;Initial Catalog=UserDetails;Persist Security Info=False;User ID=system123;Password=Hornyporny@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                connection.Open();
+                string query = "delete from DataRefernce where Student_Id ='" + id + "' and Question_Id = '" + qid + "';";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                reader = cmd.ExecuteReader();
+
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         void downloadClick(Object sender, EventArgs eventArgs)
         {
             string gpath = path1 + path2;
@@ -76,6 +98,7 @@ namespace App4.FragFolder
             Directory.CreateDirectory("/storage/emulated/0/Android/data/com.App4.App/Answers");
             
             DownloadFileAsync(path2,gpath);
+            del();
         }
 
         public static async void DownloadFileAsync(String BlobPath, String DevicePath)
@@ -99,6 +122,7 @@ namespace App4.FragFolder
             var blob = container.GetBlobReference(BlobPath);
 
             await blob.DownloadToFileAsync(DevicePath, FileMode.CreateNew);
+            
 
         }
 

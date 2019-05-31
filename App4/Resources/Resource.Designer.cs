@@ -2396,8 +2396,8 @@ namespace App4
 			// aapt resource value: 0x7f0800b2
 			public const int abcd = 2131230898;
 			
-			// aapt resource value: 0x7f0800db
-			public const int about = 2131230939;
+			// aapt resource value: 0x7f0800de
+			public const int about = 2131230942;
 			
 			// aapt resource value: 0x7f0800b6
 			public const int action0 = 2131230902;
@@ -2450,8 +2450,8 @@ namespace App4
 			// aapt resource value: 0x7f08005c
 			public const int action_mode_close_button = 2131230812;
 			
-			// aapt resource value: 0x7f0800dd
-			public const int action_settings = 2131230941;
+			// aapt resource value: 0x7f0800e0
+			public const int action_settings = 2131230944;
 			
 			// aapt resource value: 0x7f0800b5
 			public const int action_text = 2131230901;
@@ -2474,8 +2474,8 @@ namespace App4
 			// aapt resource value: 0x7f080038
 			public const int always = 2131230776;
 			
-			// aapt resource value: 0x7f0800dc
-			public const int answer = 2131230940;
+			// aapt resource value: 0x7f0800df
+			public const int answer = 2131230943;
 			
 			// aapt resource value: 0x7f0800c7
 			public const int ask = 2131230919;
@@ -2552,8 +2552,8 @@ namespace App4
 			// aapt resource value: 0x7f08006c
 			public const int customPanel = 2131230828;
 			
-			// aapt resource value: 0x7f0800da
-			public const int dashboard = 2131230938;
+			// aapt resource value: 0x7f0800dd
+			public const int dashboard = 2131230941;
 			
 			// aapt resource value: 0x7f08007a
 			public const int decor_content_parent = 2131230842;
@@ -2705,14 +2705,14 @@ namespace App4
 			// aapt resource value: 0x7f0800ce
 			public const int major = 2131230926;
 			
-			// aapt resource value: 0x7f0800d8
-			public const int masked = 2131230936;
+			// aapt resource value: 0x7f0800db
+			public const int masked = 2131230939;
 			
 			// aapt resource value: 0x7f0800b9
 			public const int media_actions = 2131230905;
 			
-			// aapt resource value: 0x7f0800d6
-			public const int message = 2131230934;
+			// aapt resource value: 0x7f0800d9
+			public const int message = 2131230937;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2876,8 +2876,8 @@ namespace App4
 			// aapt resource value: 0x7f080025
 			public const int showTitle = 2131230757;
 			
-			// aapt resource value: 0x7f0800d9
-			public const int signin = 2131230937;
+			// aapt resource value: 0x7f0800dc
+			public const int signin = 2131230940;
 			
 			// aapt resource value: 0x7f0800d4
 			public const int signup = 2131230932;
@@ -2914,6 +2914,15 @@ namespace App4
 			
 			// aapt resource value: 0x7f0800b8
 			public const int status_bar_latest_event_content = 2131230904;
+			
+			// aapt resource value: 0x7f0800d6
+			public const int stud_profile = 2131230934;
+			
+			// aapt resource value: 0x7f0800d7
+			public const int stud_questiions = 2131230935;
+			
+			// aapt resource value: 0x7f0800d8
+			public const int stud_videos = 2131230936;
 			
 			// aapt resource value: 0x7f0800d1
 			public const int student = 2131230929;
@@ -3023,8 +3032,8 @@ namespace App4
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800d7
-			public const int visible = 2131230935;
+			// aapt resource value: 0x7f0800da
+			public const int visible = 2131230938;
 			
 			// aapt resource value: 0x7f08008c
 			public const int webView = 2131230860;
@@ -3323,16 +3332,19 @@ namespace App4
 			public const int SplashScreen = 2130968652;
 			
 			// aapt resource value: 0x7f04004d
-			public const int Subscription = 2130968653;
+			public const int StudentDashBoard = 2130968653;
 			
 			// aapt resource value: 0x7f04004e
-			public const int support_simple_spinner_dropdown_item = 2130968654;
+			public const int Subscription = 2130968654;
 			
 			// aapt resource value: 0x7f04004f
-			public const int tooltip = 2130968655;
+			public const int support_simple_spinner_dropdown_item = 2130968655;
 			
 			// aapt resource value: 0x7f040050
-			public const int videos = 2130968656;
+			public const int tooltip = 2130968656;
+			
+			// aapt resource value: 0x7f040051
+			public const int videos = 2130968657;
 			
 			static Layout()
 			{
