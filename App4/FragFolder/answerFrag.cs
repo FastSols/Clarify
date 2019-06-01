@@ -39,7 +39,7 @@ namespace App4.FragFolder
             View view = inflater.Inflate(Resource.Layout.Answerpage, container, false);
             Button answer = view.FindViewById<Button>(Resource.Id.SearchFile);
             Button upload = view.FindViewById<Button>(Resource.Id.Submit);
-             answerText = view.FindViewById<EditText>(Resource.Id.editText1);
+           //  answerText = view.FindViewById<EditText>(Resource.Id.editText1);
             answer.Click += searchclickAsync;
             upload.Click += uploadclick;
             studid = Arguments.GetInt("StudId");
@@ -68,60 +68,34 @@ namespace App4.FragFolder
 
         public void uploadclick(Object sender, EventArgs eventArgs)
         {
-            Toast.MakeText(Context, path, ToastLength.Long).Show();
-            if (answerText == null)
+
+
+
+            //Toast.MakeText(Context, path, ToastLength.Long).Show();
+           
+
+            int x = r.Next();
+            String s = "answers";
+            //FileStream stream = new FileStream(Path, FileMode.Open);
+            string sql = "insert into DataRefernce(Question_id,Student_id,Teacher_id,Container_Name,Blob_Name) values ('" + qid + "','" + studid + "','" + x + "','" + s + "','" + path + "');";
+            try
             {
-                
-                int y = r2.Next();
 
+                var con = connect();
 
-                
-                string sql = "insert into DataRefernce(Question_id,Student_id,Teacher_id,Container_Name,Blob_Name) values ('"+qid+"','"+studid+"','"+r+"',answers,'"+path+"');";
-                try
-                {
-
-                    var con = connect();
-
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    int i = cmd.ExecuteNonQuery();
-                    Toast.MakeText(Context, i.ToString(), ToastLength.Long).Show();
-                    // Toast.MakeText(this, i.ToString(), ToastLength.Long).Show();
-
-
-                }
-                catch (Exception e)
-                {
-                    Toast.MakeText(Context, e.ToString(), ToastLength.Long).Show();
-                }
-
-            }
-
-            else
-            {
-                int x = r.Next();
-                String s = "answers";
-                //FileStream stream = new FileStream(Path, FileMode.Open);
-                string sql = "insert into DataRefernce(Question_id,Student_id,Teacher_id,Container_Name,Blob_Name) values ('" + qid + "','" + studid + "','"+x+"','"+s+"','" + path + "');";
-                try
-                {
-
-                    var con = connect();
-
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    int i = cmd.ExecuteNonQuery();
-                    Toast.MakeText(Context, i.ToString(), ToastLength.Long).Show();
-                    // Toast.MakeText(this, i.ToString(), ToastLength.Long).Show();
-
-
-                }
-                catch (Exception e)
-                {
-                    Toast.MakeText(Context, e.ToString(), ToastLength.Long).Show();
-                }
-                UploadFileAsync(path);
+                SqlCommand cmd = new SqlCommand(sql, con);
+                int i = cmd.ExecuteNonQuery();
+                Toast.MakeText(Context, i.ToString(), ToastLength.Long).Show();
+                // Toast.MakeText(this, i.ToString(), ToastLength.Long).Show();
 
 
             }
+            catch (Exception e)
+            {
+                Toast.MakeText(Context, e.ToString(), ToastLength.Long).Show();
+            }
+            UploadFileAsync(path);
+
         }
         SqlConnection connect()
         {

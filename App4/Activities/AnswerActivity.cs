@@ -20,7 +20,7 @@ namespace App4.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Answerpage);
             string question  = Intent.Extras.GetString("QuestionId");
-            TextView qtext = FindViewById<TextView>(Resource.Id.questiontext);
+           TextView qtext = FindViewById<TextView>(Resource.Id.questiontext);
             Button search = FindViewById<Button>(Resource.Id.SearchFile);
             qtext.Text = question;
             search.Click += searchclick;

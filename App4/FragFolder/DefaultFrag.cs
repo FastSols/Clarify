@@ -96,7 +96,7 @@ namespace App4.FragFolder
 
 
 
-                throw;
+                Toast.MakeText(Context, "Error", ToastLength.Long).Show();
 
             }
 

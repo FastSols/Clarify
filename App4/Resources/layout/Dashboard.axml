@@ -34,6 +34,6 @@
                 android:background = "@android:color/holo_blue_light"
 
         android:id="@+id/videos"
-        android:text="Your Videos" />
+        android:text="Your Solutions" />
     
 </LinearLayout>

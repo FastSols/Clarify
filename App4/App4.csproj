@@ -22,7 +22,11 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidKeyStore>false</AndroidKeyStore>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\chita\AppData\Local\Xamarin\Mono for Android\Keystore\clarify\clarify.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>12345678</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>clarify</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>clarify</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>

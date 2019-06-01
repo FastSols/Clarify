@@ -17,17 +17,7 @@
         android:paddingRight="190px"
         android:id="@+id/questiontext"
         android:layout_marginTop="150px" />
-    <EditText
-        android:inputType="textMultiLine"
-        android:layout_width="fill_parent"
-        android:layout_height="150px"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:layout_marginLeft="50px"
-        android:layout_marginRight="50px"
-        android:layout_marginTop="400px"
-        android:id="@+id/editText1"
-        android:textSize="22dp"
-        android:hint="Enter your answer here" />
+  
     <Button
         android:id="@+id/SearchFile"
         android:layout_width="fill_parent"

@@ -164,21 +164,7 @@ namespace App4
                                 .Add(Resource.Id.frameLayout1, answer, "Ask")
                                 .Commit();
             }
-            else if (id == Resource.Id.answer)
-            {
-                
-                String iid = Intent.GetStringExtra("StudId");
-                //Toast.MakeText(this, id, ToastLength.Long).Show();
-
-                int i = Int32.Parse(iid.ToString());
-                Bundle bundle = new Bundle();
-                bundle.PutInt("StudId", i);
-                var answer = new answerFrag();
-                answer.Arguments = bundle;
-                FragmentManager.BeginTransaction()
-                                .Add(Resource.Id.frameLayout1, answer, "Ask")
-                                .Commit();
-            }
+            
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);
